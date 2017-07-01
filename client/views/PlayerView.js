@@ -6,6 +6,20 @@ var PlayerView = Backbone.View.extend({
   el: '<audio controls autoplay />',
 
   initialize: function() {
+    // when song ends, assign new song to play
+    this.on("ended", function() {
+      //remove song that ended songQueue.at(0)
+      //songQueue.at(0)
+      //this.add(this.collection.at(0));
+      console.log(this.collection.at(0));
+      console.log(this);
+      setSong(this.collection.at(0));
+      // if (this.length !== 0) {
+      //   //run playFirst
+      //   this.playFirst();
+      // }
+    });
+    this.render();
   },
 
   setSong: function(song) {
@@ -18,3 +32,4 @@ var PlayerView = Backbone.View.extend({
   }
 
 });
+

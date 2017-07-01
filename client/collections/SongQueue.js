@@ -38,4 +38,3 @@ var SongQueue = Backbone.Collection.extend({
 
 
 });
-
