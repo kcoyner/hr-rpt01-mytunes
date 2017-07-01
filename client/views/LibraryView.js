@@ -4,7 +4,13 @@ var LibraryView = Backbone.View.extend({
   tagName: 'table',
 
   initialize: function() {
+    var context = this;
     this.render();
+
+    //Listener for new data trigger to render
+    this.collection.on('incoming', function() {
+      context.render();
+    })
 
   },
 
@@ -21,3 +27,4 @@ var LibraryView = Backbone.View.extend({
   }
 
 });
+
