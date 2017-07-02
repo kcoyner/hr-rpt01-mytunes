@@ -12,6 +12,7 @@ var Songs = Backbone.Collection.extend({
       // data: JSON.stringify(songs),
       contentType: 'application/json',
         success: function (data) {
+          console.log(data.results);
           context.add(data.results);
           //trigger LibraryView to render
           context.trigger('incoming');
