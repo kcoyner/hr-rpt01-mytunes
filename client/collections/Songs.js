@@ -8,22 +8,21 @@ var Songs = Backbone.Collection.extend({
     $.ajax({
       // This is the url you should use to communicate with the parse API server.
       url: 'http://parse.sfm8.hackreactor.com/mytunes/classes/songs',
-      type: 'GET',
+      method: 'GET',
       // data: JSON.stringify(songs),
       contentType: 'application/json',
-        success: function (data) {
-          console.log(data.results);
-          context.add(data.results);
-          //trigger LibraryView to render
-          context.trigger('incoming');
-        },
-        error: function (data) {
-          // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error
-          console.error('mytunes: Failed to get songs', data);
-        }
+      // dataType: 'application/json',
+      success: function(data) {
+        context.add(data.results);
+        //trigger LibraryView to render
+        context.trigger('incoming');
+      },
+      error: function(data) {
+        // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error
+        console.error('mytunes: Failed to get songs', data);
+      }
     });
 
   }
 
 });
-

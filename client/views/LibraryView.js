@@ -10,7 +10,8 @@ var LibraryView = Backbone.View.extend({
     //Listener for new data trigger to render
     this.collection.on('incoming', function() {
       context.render();
-    })
+    });
+
 
   },
 
