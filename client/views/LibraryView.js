@@ -11,8 +11,6 @@ var LibraryView = Backbone.View.extend({
     this.collection.on('incoming', function() {
       context.render();
     });
-
-
   },
 
   render: function() {
