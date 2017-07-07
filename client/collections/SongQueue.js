@@ -18,9 +18,20 @@ var SongQueue = Backbone.Collection.extend({
   },
 
   dequeue: function (song) {
+    if (this.at(0) === song) {
+      this.playNext();
+    } else {
+      this.remove(song);
+    }
   },
 
   playNext: function () {
+    this.shift();
+    if (this.length >= 1) {
+      this.playFirst();
+    } else {
+      this.trigger('stop');
+    }
   },
 
   playFirst: function() {

@@ -6,12 +6,9 @@ var Songs = Backbone.Collection.extend({
   initialize: function() {
     var context = this;
     $.ajax({
-      // This is the url you should use to communicate with the parse API server.
       url: 'http://parse.sfm8.hackreactor.com/mytunes/classes/songs',
       method: 'GET',
-      // data: JSON.stringify(songs),
       contentType: 'application/json',
-      // dataType: 'application/json',
       success: function(data) {
         context.add(data.results);
         //trigger LibraryView to render
